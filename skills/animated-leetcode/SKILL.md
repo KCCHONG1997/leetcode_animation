@@ -12,6 +12,7 @@ Build each problem as a portable HTML lesson that makes the algorithm's changing
 Each problem page must contain:
 
 - the problem title and difficulty;
+- a visible header link to the verified official LeetCode problem;
 - a faithful problem description, example input/output, and constraints when useful;
 - topic tags;
 - the solution source code;
@@ -38,7 +39,7 @@ Parse only the first two `/` separators. Treat the first field as the problem nu
 ## Workflow
 
 1. Inspect nearby problem pages before editing. Match their visual tokens, spacing, and interaction model.
-2. Confirm the official LeetCode problem number, algorithm, language, example trace, and complexity from supplied material. If essential problem facts are missing, consult an authoritative source. Show a problem number only when verified, and label it `LeetCode N`; otherwise omit the number. Use user-supplied problem text as given; otherwise write a concise faithful description and link to the original rather than copying a long webpage verbatim.
+2. Confirm the official LeetCode problem number, URL, algorithm, language, example trace, and complexity from supplied material. If essential problem facts are missing, consult an authoritative source. Show a problem number only when verified, and label it `LeetCode N`; otherwise omit the number. Put a visible `View on LeetCode ↗` link in the page header that opens the verified problem URL in a new tab. Use user-supplied problem text as given; otherwise write a concise faithful description rather than copying a long webpage verbatim.
 3. Identify the smallest set of state that explains the algorithm. Design the visual around that state instead of reusing an unrelated generic animation.
 4. Accept user-editable test input appropriate to the problem. Validate it inline with actionable messages and sensible visualization bounds, then generate the execution trace from the submitted values rather than replaying a hard-coded example.
 5. Implement execution as an ordered trace. Every trace step should specify the active code line, explanatory text, and complete visible algorithm state so seeking backward is deterministic.
@@ -84,7 +85,9 @@ Use a structural view instead when topology or order is the concept being taught
 - Make controls actual buttons with accessible labels and visible focus states.
 - Respect `prefers-reduced-motion` and keep the layout usable around 360 px wide.
 - Escape dynamic text inserted as HTML, or use `textContent`, when input is not a hard-coded trusted fixture.
+- Give the official problem link `target="_blank"` and `rel="noreferrer"`. Do not use a generic or collection link in its place.
 - Avoid em dashes in all generated user-facing copy. Use commas, colons, parentheses, or separate sentences instead.
+- Do not invent a product, collection, or site brand. Use a name supplied by the user or repository; otherwise use the neutral skill name `Animated Leetcode`.
 
 ## Quality bar
 
