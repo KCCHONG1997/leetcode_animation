@@ -19,7 +19,9 @@ Each problem page must contain:
 - Code, Animation, and Side-by-side display modes; and
 - editable test inputs that regenerate and run the execution trace.
 
-Keep one problem in one self-contained `.html` file unless the user requests a different architecture. Include CSS and JavaScript in the file, avoid a build step, and do not introduce remote dependencies merely for convenience. Name the file from the problem title in lowercase kebab case, such as `longest-substring-without-repeating-characters.html`.
+Keep one problem in one self-contained `.html` file unless the user requests a different architecture. Include CSS and JavaScript in the file, avoid a build step, and do not introduce remote dependencies merely for convenience.
+
+Name every problem file `<leetcodeNumber>_<leetcode-title-name>.html`: use the verified official problem number, then an underscore, then the title in lowercase kebab case. For example, Two Sum is `1_two-sum.html` and Longest Substring Without Repeating Characters is `3_longest-substring-without-repeating-characters.html`. Never invent or guess the numeric prefix; verify it before creating or renaming the file.
 
 ## Workflow
 
