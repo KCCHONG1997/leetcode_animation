@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Algorithm Atlas</title>
+  <style>
+    :root { --ink:#17211b; --muted:#667269; --paper:#f4f1e8; --card:#fffdf7; --line:#d9d5c9; --green:#176b4d; --lime:#d9f18c; }
+    * { box-sizing:border-box; }
+    body { margin:0; color:var(--ink); background:var(--paper); font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; }
+    .noise { min-height:100vh; background-image:radial-gradient(#17211b12 .7px,transparent .7px); background-size:14px 14px; }
+    header { max-width:1120px; margin:auto; padding:34px 28px 20px; display:flex; align-items:center; justify-content:space-between; }
+    .brand { display:flex; align-items:center; gap:12px; font-weight:800; letter-spacing:-.03em; font-size:20px; }
+    .mark { width:34px; height:34px; display:grid; place-items:center; border-radius:10px; color:white; background:var(--ink); font:800 14px/1 ui-monospace,monospace; transform:rotate(-3deg); }
+    .count { color:var(--muted); font-size:13px; padding:8px 12px; border:1px solid var(--line); border-radius:999px; background:#ffffff80; }
+    main { max-width:1120px; margin:auto; padding:74px 28px 80px; }
+    .eyebrow { color:var(--green); font:700 12px/1 ui-monospace,monospace; text-transform:uppercase; letter-spacing:.15em; }
+    h1 { max-width:760px; margin:18px 0 16px; font:700 clamp(48px,8vw,92px)/.94 Georgia,serif; letter-spacing:-.055em; }
+    .lede { max-width:600px; color:var(--muted); font-size:18px; line-height:1.65; }
+    .toolbar { display:flex; gap:12px; margin:54px 0 24px; }
+    .search { flex:1; position:relative; }
+    .search input { width:100%; height:50px; border:1px solid var(--line); border-radius:14px; background:var(--card); padding:0 18px 0 46px; color:var(--ink); font:inherit; outline:none; }
+    .search input:focus { border-color:var(--green); box-shadow:0 0 0 3px #176b4d18; }
+    .search span { position:absolute; left:17px; top:14px; color:var(--muted); }
+    .grid { display:grid; grid-template-columns:repeat(3,1fr); gap:18px; }
+    .problem { min-height:230px; padding:24px; color:inherit; text-decoration:none; border:1px solid var(--line); border-radius:18px; background:var(--card); box-shadow:0 8px 28px #283a2f0a; transition:.2s ease; display:flex; flex-direction:column; }
+    .problem:hover { transform:translateY(-4px); border-color:#a4aa9f; box-shadow:0 18px 38px #283a2f14; }
+    .meta { display:flex; justify-content:space-between; align-items:center; font:700 11px/1 ui-monospace,monospace; text-transform:uppercase; letter-spacing:.08em; }
+    .difficulty { color:var(--green); background:#dff1e7; padding:7px 9px; border-radius:999px; }
+    .number { color:#9a9f99; }
+    h2 { margin:35px 0 10px; font:700 28px/1.1 Georgia,serif; letter-spacing:-.025em; }
+    .summary { color:var(--muted); font-size:14px; line-height:1.55; }
+    .topics { display:flex; gap:7px; flex-wrap:wrap; margin-top:auto; padding-top:24px; }
+    .topic { color:#4f5b53; background:#efede5; border-radius:7px; padding:6px 8px; font-size:11px; }
+    .empty { display:none; color:var(--muted); padding:40px 0; }
+    footer { margin-top:65px; padding-top:20px; border-top:1px solid var(--line); color:var(--muted); font-size:13px; }
+    @media(max-width:800px){ main{padding-top:45px}.grid{grid-template-columns:1fr}.problem{min-height:210px}.toolbar{margin-top:38px} }
+  </style>
+</head>
+<body><div class="noise">
+  <header><div class="brand"><span class="mark">A²</span> Algorithm Atlas</div><div class="count"><span id="count">1</span> visual lesson</div></header>
+  <main>
+    <div class="eyebrow">A visual LeetCode library</div>
+    <h1>See the idea.<br>Then run it.</h1>
+    <p class="lede">A personal collection of algorithms explained through code, motion, and the state changes that connect them.</p>
+    <div class="toolbar"><label class="search"><span>⌕</span><input id="search" autocomplete="off" placeholder="Search problems or topics…" aria-label="Search problems" /></label></div>
+    <section class="grid" id="grid">
+      <a class="problem" href="two-sum.html" data-search="two sum easy array hash table hashmap complement">
+        <div class="meta"><span class="number">LeetCode 1</span><span class="difficulty">Easy</span></div>
+        <h2>Two Sum</h2>
+        <div class="summary">Find two values whose sum reaches the target using a one-pass lookup.</div>
+        <div class="topics"><span class="topic">Array</span><span class="topic">Hash Table</span></div>
+      </a>
+    </section>
+    <p class="empty" id="empty">No visual lessons match that search.</p>
+    <footer>One problem, one portable HTML file. No build step and no dependencies.</footer>
+  </main>
+  <script>
+    const input=document.querySelector('#search');
+    const cards=[...document.querySelectorAll('.problem')];
+    input.addEventListener('input',()=>{const q=input.value.toLowerCase().trim();let n=0;cards.forEach(c=>{const show=c.dataset.search.includes(q);c.style.display=show?'flex':'none';n+=show});document.querySelector('#count').textContent=n;document.querySelector('#empty').style.display=n?'none':'block'});
+  </script>
+</div></body>
+</html>
