@@ -1,10 +1,10 @@
 # Animated Leetcode
 
-**Animated Leetcode is a skill for AI coding agents.** Install it in Codex—or another compatible agent that supports `SKILL.md`—and the AI will turn LeetCode solutions into portable, interactive lessons where the source code and algorithm state run side by side.
+**Animated Leetcode is a skill for AI coding agents.** Install it in Codex or another compatible agent that supports `SKILL.md`, and the AI will turn LeetCode solutions into portable, interactive lessons where the source code and algorithm state run side by side.
 
 This is not a browser extension, npm package, or standalone lesson generator. The skill gives an AI agent a repeatable workflow, design rules, and a working HTML template so it can create and maintain animated problem pages for you.
 
-Each lesson is a single HTML file. It needs no framework, package installation, build command, or server—open it directly in a browser.
+Each lesson is a single HTML file. It needs no framework, package installation, build command, or server. Open it directly in a browser.
 
 ## Who this is for
 
@@ -47,7 +47,7 @@ Change `nums` or `target` and select **Run input**. The lesson rebuilds the trac
 
 ## Install the skill
 
-The complete skill is in [`skills/animated-leetcode`](skills/animated-leetcode). Install the entire directory—not only `SKILL.md`—because it also contains the starter lesson and Codex metadata.
+The complete skill is in [`skills/animated-leetcode`](skills/animated-leetcode). Install the entire directory, not only `SKILL.md`, because it also contains the starter lesson and Codex metadata.
 
 ### Windows PowerShell
 
@@ -117,7 +117,7 @@ The bundled [`problem-template.html`](skills/animated-leetcode/assets/problem-te
 
 ## Visualization conventions
 
-Stored algorithm memory such as `seen`, `memo`, `visited`, or `cache` uses a compact, scrollable log. The component title remains generic—**Memory log**—while rows show concrete runtime assignments:
+Stored algorithm memory such as `seen`, `memo`, `visited`, or `cache` uses a compact, scrollable log. The component title remains generic, such as **Memory log**, while rows show concrete runtime assignments:
 
 ```text
 seen[2] = 0

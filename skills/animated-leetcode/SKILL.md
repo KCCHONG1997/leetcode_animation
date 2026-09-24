@@ -50,7 +50,7 @@ Use motion to show state transitions, not as decoration. Keep the current item, 
 
 ### Stored-memory convention
 
-When the algorithm accumulates memory in a named variable or parameter—such as `seen`, `memo`, `visited`, `cache`, a frequency map, or a lookup table—default to a compact logging format:
+When the algorithm accumulates memory in a named variable or parameter, such as `seen`, `memo`, `visited`, `cache`, a frequency map, or a lookup table, default to a compact logging format:
 
 - keep the panel title generic, such as `Memory log`; do not put a parameter name, array expression, or schema in the title;
 - show the concrete variable expression inside each row, using actual runtime values, such as `seen[2] = 0`, rather than a placeholder such as `seen[value] = index`;
@@ -72,6 +72,7 @@ Use a structural view instead when topology or order is the concept being taught
 - Make controls actual buttons with accessible labels and visible focus states.
 - Respect `prefers-reduced-motion` and keep the layout usable around 360 px wide.
 - Escape dynamic text inserted as HTML, or use `textContent`, when input is not a hard-coded trusted fixture.
+- Avoid em dashes in all generated user-facing copy. Use commas, colons, parentheses, or separate sentences instead.
 
 ## Quality bar
 
