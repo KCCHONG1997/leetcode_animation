@@ -12,6 +12,7 @@ Build each problem as a portable HTML lesson that makes the algorithm's changing
 Each problem page must contain:
 
 - the problem title and difficulty;
+- a visible header link to the verified official LeetCode problem;
 - a faithful problem description, example input/output, and constraints when useful;
 - topic tags;
 - the solution source code;
@@ -20,6 +21,18 @@ Each problem page must contain:
 - editable test inputs that regenerate and run the execution trace.
 
 Keep one problem in one self-contained `.html` file unless the user requests a different architecture. Include CSS and JavaScript in the file, avoid a build step, and do not introduce remote dependencies merely for convenience.
+
+## Output location
+
+Respect an output path supplied by the user. Otherwise, inspect the workspace for an established lesson directory containing problem files that follow this skill's naming convention.
+
+Treat the request as first-time setup when no output path was supplied and no established lesson directory exists. Before creating a directory or writing an HTML file, pause and ask:
+
+```text
+Where should I store the animated LeetCode HTML files? If you have no preference, I will use <current-working-directory>/animated_leetcode.
+```
+
+Do not continue until the user answers. If the user accepts the default, use a folder named exactly `animated_leetcode`. When the current working directory is already named `animated_leetcode`, use it directly instead of creating a nested folder. On later requests, reuse the established lesson directory without asking again. Never move existing lesson files to a new directory unless the user explicitly requests the move.
 
 Name every problem file `<leetcodeNumber>_<leetcode-title-name>.html`: use the verified official problem number, then an underscore, then the title in lowercase kebab case. For example, Two Sum is `1_two-sum.html` and Longest Substring Without Repeating Characters is `3_longest-substring-without-repeating-characters.html`. Never invent or guess the numeric prefix; verify it before creating or renaming the file.
 
@@ -37,13 +50,13 @@ Parse only the first two `/` separators. Treat the first field as the problem nu
 
 ## Workflow
 
-1. Inspect nearby problem pages and the collection index before editing. Match their navigation, tokens, spacing, and interaction model.
-2. Confirm the official LeetCode problem number, algorithm, language, example trace, and complexity from supplied material. If essential problem facts are missing, consult an authoritative source. Show a problem number only when verified, and label it `LeetCode N`; otherwise omit the number. Use user-supplied problem text as given; otherwise write a concise faithful description and link to the original rather than copying a long webpage verbatim.
+1. Resolve the output location using the first-time setup rule above, then inspect nearby problem pages. Match their visual tokens, spacing, and interaction model.
+2. Confirm the official LeetCode problem number, URL, algorithm, language, example trace, and complexity from supplied material. If essential problem facts are missing, consult an authoritative source. Show a problem number only when verified, and label it `LeetCode N`; otherwise omit the number. Put a visible `View on LeetCode ↗` link in the page header that opens the verified problem URL in a new tab. Use user-supplied problem text as given; otherwise write a concise faithful description rather than copying a long webpage verbatim.
 3. Identify the smallest set of state that explains the algorithm. Design the visual around that state instead of reusing an unrelated generic animation.
 4. Accept user-editable test input appropriate to the problem. Validate it inline with actionable messages and sensible visualization bounds, then generate the execution trace from the submitted values rather than replaying a hard-coded example.
 5. Implement execution as an ordered trace. Every trace step should specify the active code line, explanatory text, and complete visible algorithm state so seeking backward is deterministic.
 6. Synchronize Play/Pause, previous, next, scrubber, speed, and restart behavior. Playback must stop cleanly at the final step and replay from the beginning. Submitting new input must stop old playback, rebuild the trace, reset the timeline, and run the new trace.
-7. Add or update the card in the collection index when the repository has one.
+7. Keep the deliverable limited to the standalone problem file. Do not create or update an index, catalog, README lesson list, or other aggregate page unless the user explicitly requests one.
 8. Verify valid, invalid, boundary, duplicate, negative, and no-solution inputs where applicable, along with all three display modes, narrow-screen behavior, keyboard controls, and the final result. Check the browser console for errors when browser tooling is available.
 
 ## Visualization choices
@@ -84,7 +97,9 @@ Use a structural view instead when topology or order is the concept being taught
 - Make controls actual buttons with accessible labels and visible focus states.
 - Respect `prefers-reduced-motion` and keep the layout usable around 360 px wide.
 - Escape dynamic text inserted as HTML, or use `textContent`, when input is not a hard-coded trusted fixture.
+- Give the official problem link `target="_blank"` and `rel="noreferrer"`. Do not use a generic or collection link in its place.
 - Avoid em dashes in all generated user-facing copy. Use commas, colons, parentheses, or separate sentences instead.
+- Do not invent a product, collection, or site brand. Use a name supplied by the user or repository; otherwise use the neutral skill name `Animated Leetcode`.
 
 ## Quality bar
 
