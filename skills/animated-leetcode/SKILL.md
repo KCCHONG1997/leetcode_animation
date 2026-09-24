@@ -37,13 +37,13 @@ Parse only the first two `/` separators. Treat the first field as the problem nu
 
 ## Workflow
 
-1. Inspect nearby problem pages and the collection index before editing. Match their navigation, tokens, spacing, and interaction model.
+1. Inspect nearby problem pages before editing. Match their visual tokens, spacing, and interaction model.
 2. Confirm the official LeetCode problem number, algorithm, language, example trace, and complexity from supplied material. If essential problem facts are missing, consult an authoritative source. Show a problem number only when verified, and label it `LeetCode N`; otherwise omit the number. Use user-supplied problem text as given; otherwise write a concise faithful description and link to the original rather than copying a long webpage verbatim.
 3. Identify the smallest set of state that explains the algorithm. Design the visual around that state instead of reusing an unrelated generic animation.
 4. Accept user-editable test input appropriate to the problem. Validate it inline with actionable messages and sensible visualization bounds, then generate the execution trace from the submitted values rather than replaying a hard-coded example.
 5. Implement execution as an ordered trace. Every trace step should specify the active code line, explanatory text, and complete visible algorithm state so seeking backward is deterministic.
 6. Synchronize Play/Pause, previous, next, scrubber, speed, and restart behavior. Playback must stop cleanly at the final step and replay from the beginning. Submitting new input must stop old playback, rebuild the trace, reset the timeline, and run the new trace.
-7. Add or update the card in the collection index when the repository has one.
+7. Keep the deliverable limited to the standalone problem file. Do not create or update an index, catalog, README lesson list, or other aggregate page unless the user explicitly requests one.
 8. Verify valid, invalid, boundary, duplicate, negative, and no-solution inputs where applicable, along with all three display modes, narrow-screen behavior, keyboard controls, and the final result. Check the browser console for errors when browser tooling is available.
 
 ## Visualization choices

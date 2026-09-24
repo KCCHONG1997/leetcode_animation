@@ -41,7 +41,7 @@ For example:
 
 ## Try the included lesson
 
-Open [index.html](index.html) in a browser, then select **Two Sum**. You can also open [1_two-sum.html](1_two-sum.html) directly.
+Open [1_two-sum.html](1_two-sum.html) directly in a browser.
 
 Change `nums` or `target` and select **Run input**. The lesson rebuilds the trace from your values instead of replaying a fixed recording.
 
@@ -156,7 +156,7 @@ Useful follow-up requests include:
 Add another test case for descending prices.
 Make the pointer movement clearer on mobile.
 Change the solution language to Java.
-Add this lesson to index.html.
+Adjust the test-input limits for a longer example.
 ```
 
 ## How the skill works
@@ -169,7 +169,7 @@ The workflow is defined in [`SKILL.md`](skills/animated-leetcode/SKILL.md). It d
 4. Accept and validate user-editable test input.
 5. Generate a complete, seekable execution trace from that input.
 6. Keep the trace synchronized with the displayed source-code lines.
-7. Update the collection homepage and verify the completed lesson.
+7. Verify the completed standalone lesson.
 
 The bundled [`problem-template.html`](skills/animated-leetcode/assets/problem-template.html) provides the interaction shell and the Two Sum example. It is a starting point, not a universal animation: trees, graphs, dynamic-programming tables, pointers, and other structures should receive representations suited to their behavior.
 
@@ -184,21 +184,6 @@ seen[7] = 1
 
 Structures whose shape or order carries meaning, such as trees, graphs, linked lists, heaps, stacks, and queues, retain a structural visualization.
 
-## Repository layout
-
-```text
-.
-├── index.html
-├── 1_two-sum.html
-└── skills/
-    └── animated-leetcode/
-        ├── SKILL.md
-        ├── agents/
-        │   └── openai.yaml
-        └── assets/
-            └── problem-template.html
-```
-
 ## Adding lessons manually
 
 If you are not using the skill:
@@ -207,8 +192,7 @@ If you are not using the skill:
 2. Rename it using the verified problem number and lowercase kebab-case title.
 3. Replace the problem metadata, source code, input fields, and trace-building logic.
 4. Design the animation around the new algorithm rather than retaining irrelevant Two Sum elements.
-5. Add a card linking to the new file in `index.html`.
-6. Open the page in a browser and test valid, invalid, boundary, and no-solution inputs where applicable.
+5. Open the page in a browser and test valid, invalid, boundary, and no-solution inputs where applicable.
 
 ## Portability
 
