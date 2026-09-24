@@ -1,6 +1,6 @@
 interface:
   display_name: "Animated Leetcode"
-  short_description: "Build interactive single-file algorithm lessons"
+  short_description: "Build single-file animated LeetCode lessons"
   brand_color: "#176B4D"
   default_prompt: "Use $animated-leetcode to add an animated lesson for this LeetCode problem."
 policy:

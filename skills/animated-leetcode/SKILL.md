@@ -23,6 +23,18 @@ Keep one problem in one self-contained `.html` file unless the user requests a d
 
 Name every problem file `<leetcodeNumber>_<leetcode-title-name>.html`: use the verified official problem number, then an underscore, then the title in lowercase kebab case. For example, Two Sum is `1_two-sum.html` and Longest Substring Without Repeating Characters is `3_longest-substring-without-repeating-characters.html`. Never invent or guess the numeric prefix; verify it before creating or renaming the file.
 
+## Compact invocation input
+
+Accept this compact request payload after the host agent's skill invocation:
+
+```text
+{<leetcode number>/<leetcode title>/<leetcode link>}
+```
+
+In Codex, the complete form is `$animated-leetcode {<leetcode number>/<leetcode title>/<leetcode link>}`. When this same skill folder is installed in Claude Code at `~/.claude/skills/animate-leetcode/`, the complete form is `/animate-leetcode {<leetcode number>/<leetcode title>/<leetcode link>}`.
+
+Parse only the first two `/` separators. Treat the first field as the problem number, the second as the title, and the complete remainder as the URL so `https://` and URL path separators remain intact. Trim whitespace around the first two fields. Verify that the number, title, and official LeetCode link refer to the same problem before generating the lesson. Apply any text after the closing brace as additional user requirements.
+
 ## Workflow
 
 1. Inspect nearby problem pages and the collection index before editing. Match their navigation, tokens, spacing, and interaction model.

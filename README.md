@@ -47,9 +47,9 @@ Change `nums` or `target` and select **Run input**. The lesson rebuilds the trac
 
 ## Install the skill
 
-The complete skill is in [`skills/animated-leetcode`](skills/animated-leetcode). Install the entire directory, not only `SKILL.md`, because it also contains the starter lesson and Codex metadata.
+The complete skill is in [`skills/animated-leetcode`](skills/animated-leetcode). Install the entire directory, not only `SKILL.md`, because it also contains the starter lesson and agent metadata.
 
-### Windows PowerShell
+### Codex on Windows PowerShell
 
 ```powershell
 $skillTarget = Join-Path $env:USERPROFILE ".codex\skills\animated-leetcode"
@@ -57,7 +57,7 @@ New-Item -ItemType Directory -Force $skillTarget | Out-Null
 Copy-Item ".\skills\animated-leetcode\*" $skillTarget -Recurse -Force
 ```
 
-### macOS or Linux
+### Codex on macOS or Linux
 
 ```bash
 mkdir -p ~/.codex/skills/animated-leetcode
@@ -66,16 +66,74 @@ cp -R ./skills/animated-leetcode/. ~/.codex/skills/animated-leetcode/
 
 Start a new Codex session after installation so the skill is discovered.
 
-## Use the skill
+### Claude Code on Windows PowerShell
 
-Mention `$animated-leetcode` in your request and provide the problem plus the solution you want explained.
+The destination directory is named `animate-leetcode`, which creates the `/animate-leetcode` command in Claude Code.
 
-```text
-$animated-leetcode Create an interactive lesson for LeetCode 121,
-Best Time to Buy and Sell Stock. Use Python and explain the one-pass solution.
+```powershell
+$claudeSkillTarget = Join-Path $env:USERPROFILE ".claude\skills\animate-leetcode"
+New-Item -ItemType Directory -Force $claudeSkillTarget | Out-Null
+Copy-Item ".\skills\animated-leetcode\*" $claudeSkillTarget -Recurse -Force
 ```
 
-You can also provide code that must be used:
+### Claude Code on macOS or Linux
+
+```bash
+mkdir -p ~/.claude/skills/animate-leetcode
+cp -R ./skills/animated-leetcode/. ~/.claude/skills/animate-leetcode/
+```
+
+Start a new Claude Code session after installation. Claude Code derives the slash command from the destination directory name.
+
+## Use the skill
+
+### Codex
+
+Use this compact format in Codex:
+
+```text
+$animated-leetcode {<leetcode number>/<leetcode title>/<leetcode link>}
+```
+
+Example:
+
+```text
+$animated-leetcode {1/Two Sum/https://leetcode.com/problems/two-sum/}
+```
+
+Codex invokes installed skills with `$skill-name`, so use `$animated-leetcode` followed by the compact problem input.
+
+You can add preferences after the compact command:
+
+```text
+$animated-leetcode {121/Best Time to Buy and Sell Stock/https://leetcode.com/problems/best-time-to-buy-and-sell-stock/}
+Use Python and explain the one-pass solution.
+```
+
+### Claude Code
+
+Claude Code exposes the installed skill as a slash command:
+
+```text
+/animate-leetcode {<leetcode number>/<leetcode title>/<leetcode link>}
+```
+
+Example:
+
+```text
+/animate-leetcode {1/Two Sum/https://leetcode.com/problems/two-sum/}
+```
+
+You can add preferences after the command in the same message:
+
+```text
+/animate-leetcode {121/Best Time to Buy and Sell Stock/https://leetcode.com/problems/best-time-to-buy-and-sell-stock/}
+Use Python and explain the one-pass solution.
+```
+
+For both agents, the skill reads the first field as the official problem number, the second as the title, and everything after the second separator as the LeetCode URL.
+
+You can also provide code that must be used. This example uses Codex, but the same request works after `/animate-leetcode` in Claude Code:
 
 ```text
 $animated-leetcode Turn this LeetCode solution into an animated lesson.
