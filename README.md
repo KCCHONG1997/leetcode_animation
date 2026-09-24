@@ -1,8 +1,19 @@
 # Animated Leetcode
 
-Turn LeetCode solutions into portable, interactive lessons where the source code and algorithm state run side by side.
+**Animated Leetcode is a skill for AI coding agents.** Install it in Codex—or another compatible agent that supports `SKILL.md`—and the AI will turn LeetCode solutions into portable, interactive lessons where the source code and algorithm state run side by side.
+
+This is not a browser extension, npm package, or standalone lesson generator. The skill gives an AI agent a repeatable workflow, design rules, and a working HTML template so it can create and maintain animated problem pages for you.
 
 Each lesson is a single HTML file. It needs no framework, package installation, build command, or server—open it directly in a browser.
+
+## Who this is for
+
+Use this skill if you want an AI coding agent to:
+
+- create a visual explanation for a LeetCode solution;
+- convert your existing code into an interactive walkthrough;
+- add consistently designed lessons to a personal algorithm library; or
+- maintain synchronized code execution and animation without rebuilding the interface each time.
 
 ## What a lesson includes
 
