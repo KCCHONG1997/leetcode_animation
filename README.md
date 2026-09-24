@@ -35,8 +35,6 @@ For example:
 
 ```text
 1_two-sum.html
-3_longest-substring-without-repeating-characters.html
-121_best-time-to-buy-and-sell-stock.html
 ```
 
 ## Try the included lesson
@@ -183,21 +181,6 @@ seen[7] = 1
 ```
 
 Structures whose shape or order carries meaning, such as trees, graphs, linked lists, heaps, stacks, and queues, retain a structural visualization.
-
-## Repository layout
-
-```text
-.
-├── index.html
-├── 1_two-sum.html
-└── skills/
-    └── animated-leetcode/
-        ├── SKILL.md
-        ├── agents/
-        │   └── openai.yaml
-        └── assets/
-            └── problem-template.html
-```
 
 ## Adding lessons manually
 
